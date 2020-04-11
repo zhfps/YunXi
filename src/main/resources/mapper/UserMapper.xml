@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.admin.project.system.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.admin.project.system.entity.SysUser" >
+		<id column="id" property="id" javaType="long" jdbcType="INTEGER" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
+		<result column="headImgUrl" property="headImgUrl" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="birthday" property="birthday" jdbcType="DATE" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="intro" property="intro" jdbcType="INTEGER" />
+		<result column="createTime" property="createTime" jdbcType="DATE" />
+		<result column="updateTime" property="createTime" jdbcType="DATE" />
+	</resultMap>
+	<select id="countAllUsers" resultType="long">
+		select count(*) from sys_user
+	</select>
+	<select id="getUser" resultType="com.admin.project.system.entity.SysUser">
+		select * from sys_user t where t.username = #{username}
+	</select>
+	<select id="getAllUsersByPage" resultMap="BaseResultMap">
+		select * from sys_user t order by t.id limit #{page},#{pageSize}
+	</select>
+	<select id="getUserByPage" resultMap="BaseResultMap">
+		select * from sys_user
+	</select>
+	<select id="getUserByPhone" resultType="com.admin.project.system.entity.SysUser">
+		select * from sys_user t where t.telephone = #{telephone}
+	</select>
+
+	<update id="updateUser">
+		update sys_user t
+		<set>
+			<if test="username != null">
+				username = #{username},
+			</if>
+			<if test="nickname != null">
+				nickname = #{nickname},
+			</if>
+			<if test="headImgUrl != null">
+				headImgUrl = #{headImgUrl},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+			<if test="birthday != null">
+				birthday = #{birthday},
+			</if>
+			<if test="sex != null">
+				sex = #{sex},
+			</if>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			updateTime = #{updateTime}
+		</set>
+		where t.id = #{id}
+	</update>
+
+</mapper>

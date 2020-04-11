@@ -29,4 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/java/com/yunxi/zhang/admin/project/system/controller/SystemConfigController.java
+/src/main/java/com/admin/project/system/controller/SystemConfigController.java
