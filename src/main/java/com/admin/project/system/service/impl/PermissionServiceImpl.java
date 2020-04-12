@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +21,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PermissionServiceImpl implements PermissionService {
 
-    @Autowired
+    @Resource
     private PermissionDao permissionDao;
 
-    @Autowired
+    @Resource
     private RolePermissionDao rolePermissionDao;
 
     @Override

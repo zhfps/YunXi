@@ -9,24 +9,23 @@ import com.admin.project.system.entity.SysRole;
 import com.admin.project.system.entity.SysRoleUser;
 import com.admin.project.system.service.RoleService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 @Slf4j
 public class RoleServiceImpl implements RoleService {
 
-	@Autowired
+	@Resource
 	private RoleDao roleDao;
 
-    @Autowired
+    @Resource
     RolePermissionDao rolePermissionDao;
 
-    @Autowired
+    @Resource
     private RoleUserDao roleUserDao;
 
 	@Override

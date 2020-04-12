@@ -32,6 +32,9 @@
 	<select id="getUserByPhone" resultType="com.admin.project.system.entity.SysUser">
 		select * from sys_user t where t.telephone = #{telephone}
 	</select>
+	<select id="getUserByEmail" resultType="com.admin.project.system.entity.SysUser">
+		select * from sys_user t where t.email = #{email}
+	</select>
 
 	<update id="updateUser">
 		update sys_user t

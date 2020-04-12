@@ -16,7 +16,6 @@ public interface UserDao {
 
 	SysUser getUserByPhone(String telephone);
 
-	@Select("select * from sys_user t where t.email = #{email}")
 	SysUser getUserByEmail(String email);
 
     @Options(useGeneratedKeys = true, keyProperty = "id")

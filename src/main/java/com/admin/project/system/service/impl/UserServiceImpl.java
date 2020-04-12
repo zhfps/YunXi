@@ -7,11 +7,8 @@ import com.admin.project.system.dto.UserDto;
 import com.admin.project.system.entity.SysRoleUser;
 import com.admin.project.system.entity.SysUser;
 import com.admin.project.system.service.UserService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.admin.project.system.untils.MyPage;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

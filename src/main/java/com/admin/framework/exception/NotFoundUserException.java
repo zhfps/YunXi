@@ -1,11 +1,13 @@
 package com.admin.framework.exception;
 
-public class NotFoundUserException extends RuntimeException {
-    public NotFoundUserException() {
-        super();
+import org.springframework.security.core.AuthenticationException;
+
+public class NotFoundUserException extends AuthenticationException {
+    public NotFoundUserException(String msg, Throwable t) {
+        super(msg, t);
     }
 
-    public NotFoundUserException(String message) {
-        super(message);
+    public NotFoundUserException(String msg) {
+        super(msg);
     }
 }

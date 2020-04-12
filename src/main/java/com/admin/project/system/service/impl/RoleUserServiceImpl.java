@@ -6,9 +6,11 @@ import com.admin.project.system.service.RoleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class RoleUserServiceImpl implements RoleUserService {
-    @Autowired
+    @Resource
     private RoleUserDao roleUserDao;
 
     @Override
