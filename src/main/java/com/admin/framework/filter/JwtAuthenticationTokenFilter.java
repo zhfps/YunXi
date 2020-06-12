@@ -37,13 +37,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter implement
             "/",
             "/login",
             "/login.html",
-            "/my/**",
-            "/treetable-lay/**",
-            "/xadmin/css/login.css",
-            "/xadmin/css/font.css",
-            "/ztree/**",
-            "/statics/**",
-            "/api/sysUser/All",
             "/api/code"
     };
     @Override

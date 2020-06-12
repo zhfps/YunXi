@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 import java.util.Date;
 
 @SpringBootTest
+@Slf4j
 class AdminApplicationTests {
     @Autowired
     DataSource dataSource;
@@ -35,11 +37,30 @@ class AdminApplicationTests {
 //        System.out.println(redisTemplate.opsForValue().get("name"));
     }
     @Test
+    void testThred(){
+        new Thread(){
+            public void run(){
+                System.out.println("test");
+            }
+        }.start();
+        log.debug("test");
+    }
+    @Test
+    void testRunable(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("runable");
+            }
+        }).start();
+        log.debug("test");
+    }
+    @Test
     void passwordEncoder(){
-        String password = BCrypt.hashpw("admin",BCrypt.gensalt());
+        String password = BCrypt.hashpw("123456",BCrypt.gensalt());
         System.out.println(password);
-        boolean cheack = BCrypt.checkpw("admin","$2a$10$WI0ISkzS322sV0EoHQWfA.39kmTtvAL6jVBKm4ari6h/LDuJiLEw.");
-        System.out.println(cheack);
+//        boolean cheack = BCrypt.checkpw("admin","$2a$10$WI0ISkzS322sV0EoHQWfA.39kmTtvAL6jVBKm4ari6h/LDuJiLEw.");
+//        System.out.println(cheack);
     }
     @Test
     void TokenTest(){
